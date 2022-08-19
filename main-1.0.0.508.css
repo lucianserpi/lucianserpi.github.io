@@ -79,12 +79,7 @@ h6 {
 .ie11 .overflow-x-hidden {
  overflow:hidden
 }
-.user-select-none {
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none
-}
+
 .v-center {
  display:table-cell;
  vertical-align:middle
@@ -5366,10 +5361,7 @@ a.text-dark:focus {
  text-align:center;
  white-space:nowrap;
  vertical-align:middle;
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none;
+
  border:1px solid transparent;
  min-width:100px;
  text-transform:uppercase;
@@ -5854,10 +5846,7 @@ a.text-dark:focus {
  border:1px solid #d9d9d9;
  margin-top:3px;
  content:"";
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none;
+ 
  background-color:#fff;
  margin-left:-20px
 }
@@ -5870,10 +5859,7 @@ a.text-dark:focus {
  width:10px;
  height:10px;
  border-radius:50%;
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none
+ 
 }
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
  content:"\f00c";
@@ -6855,10 +6841,7 @@ a.text-dark:focus {
  padding:12px 15px;
  font-size:14px;
  width:calc(100% - 42px);
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none;
+ 
  -ms-flex-item-align:center;
  align-self:center
 }
@@ -10280,10 +10263,7 @@ html .custom__menu ::-webkit-scrollbar-track {
  color:initial;
  margin-left:auto;
  margin-right:auto;
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none
+ 
 }
 .skn-mlt8,
 .skn-mlt9,
@@ -13709,10 +13689,7 @@ html.page-education .container-tip .dropdown-switcher:first-child {
  font-weight:900
 }
 .page-finalize {
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none
+ 
 }
 .page-finalize .page-loader-new {
  z-index:1200
@@ -20099,10 +20076,7 @@ html.c-ttc3col.page-accm .example-text {
  max-width:calc(100% - 52px);
  font-size:14px;
  line-height:18px;
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none;
+ 
  -ms-flex-item-align:center;
  align-self:center;
  padding:0
@@ -22417,10 +22391,7 @@ html.c-0yoe.page-expr.screen-ttc .example-text {
  max-width:calc(100% - 52px);
  font-size:1.4rem;
  line-height:18px;
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none;
+ 
  -ms-flex-item-align:center;
  align-self:center;
  padding:0
@@ -25669,11 +25640,7 @@ html.page-finalize #document .title-edit .btn-icon-primary:focus {
  padding:12px 15px;
  font-size:14px;
  width:calc(100% - 42px);
- -webkit-user-select:none;
- -moz-user-select:none;
- -ms-user-select:none;
- user-select:none;
- -ms-flex-item-align:center;
+ 
  align-self:center
 }
 .ie11 .autosuggest-container-open .examples-group .examples-item:after {
