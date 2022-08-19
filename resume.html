@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Serpi Octavian Lucian - Resume</title>
+    <title>Serpi Octavian Lucian :: Resume</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     </style>
@@ -16,7 +16,7 @@
 
             <main id="app" role="main"><section class="page-wrapper"><div class="page-final "><section class="container" id="content"><div class="body-resume d-flex "><div class="preview-container position-relative" id="resumeDoc" style="width: 850px;"><div class="" tabindex="" style=""><div><style type="text/css" id="">
         /*Font support for MAC*/
-        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;endground:transparent}
+        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;background:transparent}
         .skn-srz6 table{font-size:inherit;color:inherit}
         .skn-srz6 a img{border:none}
 
@@ -86,8 +86,6 @@
         .skn-srz6 .right-box .outer-square:before,.skn-srz6 .right-box .sortable-item.active .inner-square{background:#003D73}
         .skn-srz6 .right-box .sortable-item.active .singlecolumn, .skn-srz6 .right-box .sortable-item.active .maincolumn{z-index:10}
         .skn-srz6 .right-box .active *{color:#5c246b}
-        /* Only for firefox */
-        @-moz-document url-prefix() {.skn-srz6 .parentContainer{height:1px}}
 
         /*PICT*/
        .skn-srz6 .prflPic,.skn-srz6 .prflPic > div{width:154px;height:154px}
@@ -151,6 +149,12 @@
         .skn-srz6.active .acrs-bdr{left:-60px !important}
         .skn-srz6.active .acr-edit,.skn-srz6.active .acr-delete{left:-59px !important}
         .skn-srz6.active .acr-move{right:-59px !important}
+        .page-finalize .container{width: auto;}
+        .skn-srz6 .parentContainer{
+          display:flex;
+          justify-content: start;
+          align-items: stretch
+        }
 
         /* support for IE Browser */
         @media screen and (min-width:0\0) {
@@ -159,6 +163,14 @@
         .skn-srz6 .left-box{width:calc(100% - 154px)}
         .skn-srz6 .left-box,.skn-srz6 .right-box{background:none;display:inline;position:relative}
         .skn-srz6 .right-box:before{content:''; background:#fe7a66; position:absolute; left:0; top:0; height:100%; width:100%; opacity:.9}
+        }
+        @media only screen and (max-width: 576px) {
+          .skn-srz6 .parentContainer{
+            flex-direction: column-reverse;
+          }
+          .skn-srz6 .right-box{
+            width: auto;
+          }
         }
     </style></div><div class="document fontsize fontface vmargins hmargins  pagesize skn-srz6 SRZ6  ZTY " data-color="#fe7a66"><div id="CONTAINER_PARENT_0" class="parentContainer"><div id="CONTAINER_0" class="left-box"><div data-react-beautiful-dnd-draggable="0" class="active"><div class="document-tool sec-tool" style="right: -2px;"><button class="btn btn-icon-tertiary btn-icon-edit" type="button" title="View / Edit"><i class="icon-edit"></i></button></div><div id="SECTION_SUMM95abffc3-5fc6-416d-857f-c7be1f1d8f18" class="section summary notdraggable SECTION_SUMM    " data-section-cd="SUMM"><div class=" doc-item"><div class=""><div class=""><div id="PARAGRAPH_SUMM_223e5afd-20f9-41dd-87b4-0c73d3840f1e" class="paragraph PARAGRAPH_SUMM firstparagraph  "><div class="clearfix doc-item">
                         <div class="field singlecolumn" id="FIELD_FRFM">
@@ -171,7 +183,7 @@
                                 <span class="jobdates" id="FIELD_EDDT" format="%Y-%m">Current</span><br dependency="JTIT|COMP|JSTA|JCIT">
                             </div>
                             <span class="paddedline" dependency="JTIT">
-                                <span class="jobtitle txtBold" id="FIELD_JTIT">Web Developer</span>
+                                <span class="jobtitle txtBold" id="FIELD_JTIT">Backend Web Developer</span>
                             </span>
                             <span class="paddedline locationGap txtItl" dependency="COMP|JSTA|JCIT">
                                 <span class="companyname" id="FIELD_COMP">NTT Data</span><span dependency="COMP+JCIT|JSTA">,</span>
@@ -182,7 +194,8 @@
                             <span class="jobline" id="FIELD_JDES">
                               <p><a href="https://www.flyeralarm.com" target="_blank">flyeralarm.com</a> - Online printing company and marketing partner. Manage product configuration page. Migrate Legacy Shop configurations.</p>
                               <p><a href="https://www.wolterskluwer-online.de" target="_blank">wolterskluwer-online.de</a> - Digital lawyers library contain more than 1,000 individual titles and modules for workes in public sector, lawyer, notary or jurist.</p>
-<p><strong>Skills and knowledge</strong>: PHP, elastic search, redis, rabbitMq, docker, WSL, microservices, Slim framework, PhpStorm</p></span>
+<p><strong>Acquired skills and knowledge</strong>:</p>
+<p>PHP, elastic search, redis, rabbitMq, docker, WSL, microservices, Slim framework, PhpStorm</p></span>
                         </div>
                     </div><div class="doc-overlay para-overlay" style="left:-2px; right: -2px;"><span class="badge badge-primary badge-edit"></span><span>&nbsp;</span></div></div><div id="PARAGRAPH_EXPR_e2045a22-39ab-471c-828e-395b92c270fb" class="paragraph PARAGRAPH_EXPR  "><div class="clearfix doc-item">
                         <div class="singlecolumn">
@@ -191,7 +204,7 @@
                                 <span class="jobdates" id="FIELD_EDDT" format="%Y-%m">2016-07</span><br dependency="JTIT|COMP|JSTA|JCIT">
                             </div>
                             <span class="paddedline" dependency="JTIT">
-                                <span class="jobtitle txtBold" id="FIELD_JTIT">Web Developer</span>
+                                <span class="jobtitle txtBold" id="FIELD_JTIT">Freelance Web Developer</span>
                             </span>
                             <span class="paddedline locationGap txtItl" dependency="COMP|JSTA|JCIT">
                                 <span class="companyname" id="FIELD_COMP">NET.STAR</span><span dependency="COMP+JCIT|JSTA">,</span>
@@ -204,7 +217,7 @@
                               <p><a href="https://app.reportical.com" target="_blank">app.reportical.com</a> - Create reports based on marketing clippings</p>
                               <p><a href="https://nachbarschaft.net/" target="_blank">nachbarschaft.net</a> - Connect neighbors to promote interpersonal contact in the anonymity of the city</p>
                               <p><a href="https://www.nummernschild.de/" target="_blank">nummernschild.de</a> - Connect drivers via vehicles number plates</p>
-<p><strong>Skills and knowledge:</strong>
+<p><strong>Acquired skills and knowledge:</strong><br>
 PHP, MySQL, responsive design, phonegap, node, angular, laravel framework, atom</p></span>
                         </div>
                     </div><div class="doc-overlay para-overlay" style="left:-2px; right: -2px;"><span class="badge badge-primary badge-edit"></span><span>&nbsp;</span></div></div><div id="PARAGRAPH_EXPR_163fad33-b9a9-8a62-150f-ccb533718494" class="paragraph PARAGRAPH_EXPR  "><div class="clearfix doc-item">
@@ -214,7 +227,7 @@ PHP, MySQL, responsive design, phonegap, node, angular, laravel framework, atom<
                                 <span class="jobdates" id="FIELD_EDDT" format="%Y-%m">2016-01</span><br dependency="JTIT|COMP|JSTA|JCIT">
                             </div>
                             <span class="paddedline" dependency="JTIT">
-                                <span class="jobtitle txtBold" id="FIELD_JTIT">Web Developer</span>
+                                <span class="jobtitle txtBold" id="FIELD_JTIT">Full Stack Web Developer</span>
                             </span>
                             <span class="paddedline locationGap txtItl" dependency="COMP|JSTA|JCIT">
                                 <span class="companyname" id="FIELD_COMP">EBS Romania</span><span dependency="COMP+JCIT|JSTA">,</span>
@@ -224,7 +237,7 @@ PHP, MySQL, responsive design, phonegap, node, angular, laravel framework, atom<
 
                             <span class="jobline" id="FIELD_JDES">
                               <p><a href="https://web.archive.org/web/20161021202247/https://www.jurion.de/de/shop" target="_blank">jurion.de</a> - Internet Services for Lawyers and Law Firms. Manage publications, authors, modules, subscriptions, users</p>
-<p><strong>Skills and knowledge:</strong>
+<p><strong>Acquired skills and knowledge:</strong><br>
 PHP, MySQL, DB2, jQuery, HTML, CSS, Soap, Zend Framework, Eclipse</p></span>
                         </div>
                     </div><div class="doc-overlay para-overlay" style="left:-2px; right: -2px;"><span class="badge badge-primary badge-edit"></span><span>&nbsp;</span></div></div><div id="PARAGRAPH_EXPR_e57c62c8-e2cf-f19b-7882-b7ef104ed16f" class="paragraph PARAGRAPH_EXPR  "><div class="clearfix doc-item">
@@ -234,7 +247,7 @@ PHP, MySQL, DB2, jQuery, HTML, CSS, Soap, Zend Framework, Eclipse</p></span>
                                 <span class="jobdates" id="FIELD_EDDT" format="%Y-%m">2014-03</span><br dependency="JTIT|COMP|JSTA|JCIT">
                             </div>
                             <span class="paddedline" dependency="JTIT">
-                                <span class="jobtitle txtBold" id="FIELD_JTIT">Web Developer</span>
+                                <span class="jobtitle txtBold" id="FIELD_JTIT">Full Stack Web Developer</span>
                             </span>
                             <span class="paddedline locationGap txtItl" dependency="COMP|JSTA|JCIT">
                                 <span class="companyname" id="FIELD_COMP">BRISK CODE</span><span dependency="COMP+JCIT|JSTA">,</span>
@@ -247,7 +260,7 @@ PHP, MySQL, DB2, jQuery, HTML, CSS, Soap, Zend Framework, Eclipse</p></span>
  - The biggest free classifieds website in Romania. Administration
 classifieds, manage promoted ads. Indexing internal search engine,
 adding classifieds form, my classifieds section, promote ads</p>
-<p><strong>Skills and knowledge:</strong>
+<p><strong>Acquired skills and knowledge:</strong><br>
 PHP, MySQL, jQuery, HTML, CSS, Kohana Framework, NetBeans</p></span>
                         </div>
                     </div><div class="doc-overlay para-overlay" style="left:-2px; right: -2px;"><span class="badge badge-primary badge-edit"></span><span>&nbsp;</span></div></div><div id="PARAGRAPH_EXPR_d48dfe18-5f4a-7dca-360b-b8fcf4364fbf" class="paragraph PARAGRAPH_EXPR  "><div class="clearfix doc-item">
@@ -257,7 +270,7 @@ PHP, MySQL, jQuery, HTML, CSS, Kohana Framework, NetBeans</p></span>
                                 <span class="jobdates" id="FIELD_EDDT" format="%Y-%m">2012-02</span><br dependency="JTIT|COMP|JSTA|JCIT">
                             </div>
                             <span class="paddedline" dependency="JTIT">
-                                <span class="jobtitle txtBold" id="FIELD_JTIT">Web Developer</span>
+                                <span class="jobtitle txtBold" id="FIELD_JTIT">Full Stack Web Developer</span>
                             </span>
                             <span class="paddedline locationGap txtItl" dependency="COMP|JSTA|JCIT">
                                 <span class="companyname" id="FIELD_COMP">IBS CONSULT</span><span dependency="COMP+JCIT|JSTA">,</span>
@@ -269,7 +282,7 @@ PHP, MySQL, jQuery, HTML, CSS, Kohana Framework, NetBeans</p></span>
                               <p><a href="http://endurotrips.ro" target="_blank">endurotrips.ro</a> - Organizer of guided Trail, Enduro & Off Road Motorcycle Tours in Sibiu</p>
                               <p><a href="http://oldschoolshop.ro" target="_blank">oldschoolshop.ro</a> - Skate Shop Online. Wrapper over PrestaShop</p>
                               <p><a href="https://e-fibu.ro" target="_blank">e-fibu.ro</a> - Human Resources management</p>
-<p><strong>Skills and knowledge:</strong>
+<p><strong>Acquired skills and knowledge:</strong><br>
 PHP, MySQL, jQuery, HTML, CSS, Photoshop, Laravel Framework, Dreamweaver</p></span>
                         </div>
                     </div><div class="doc-overlay para-overlay" style="left:-2px; right: -2px;"><span class="badge badge-primary badge-edit"></span><span>&nbsp;</span></div></div><div id="PARAGRAPH_EXPR_491ee7b4-8dc8-b115-f70e-affc4c0210fd" class="paragraph PARAGRAPH_EXPR  "><div class="clearfix doc-item">
@@ -289,7 +302,7 @@ PHP, MySQL, jQuery, HTML, CSS, Photoshop, Laravel Framework, Dreamweaver</p></sp
 
                             <span class="jobline" id="FIELD_JDES">
                               <p><a href="http://viltech.ro" target="_blank">viltech.ro</a> - Applications for bookkeeping, press expeditions, accounting applications</p>
-<p><strong>Skills and knowledge:</strong>
+<p><strong>Acquired skills and knowledge:</strong><br>
 PHP, HTML, JavaScript, Apache, Clipper, Visual Fox Pro, Visual Studio</p></span>
                         </div>
                     </div><div class="doc-overlay para-overlay" style="left:-2px; right: -2px;"><span class="badge badge-primary badge-edit"></span><span>&nbsp;</span></div></div></div></div></div><div class="doc-overlay section-overlay" style="left:-2px; right: -2px;"><span>&nbsp;</span></div></div></div><div data-react-beautiful-dnd-draggable="0" class="section-container1 active"><div class="document-tool sec-tool" id="editIcons" style="right: -2px;"><button class="btn btn-icon-tertiary btn-icon-edit" type="button" title="View / Edit"><i class="icon-edit"></i></button><button class="btn  btn-icon-tertiary btn-icon-delete" type="button" title="Delete"><i class="icon-delete" title="Delete"></i></button><button type="button" class="btn-icon-tertiary btn-icon-move" style="right: -670px;"><i class="icon-move" tabindex="0" data-react-beautiful-dnd-drag-handle="0" aria-roledescription="Draggable item. Press space bar to lift" draggable="false" title="Move"></i></button></div><div id="SECTION_EDUC908c089b-4148-4cde-a87d-9ea9fa012bfd" class="section education SECTION_EDUC   multi-para has-title " data-section-cd="EDUC"><div class=" doc-item"><div class="heading"><div class="sectiontitle" id="SECTIONNAME_EDUC">Education<span title=" Education " class="rename-section text-rename">Rename</span></div></div><div class=""><div class="sortableInner"><div id="PARAGRAPH_EDUC_75248860-3f65-4081-8d1f-aa22cfdf054f" class="paragraph PARAGRAPH_EDUC firstparagraph  "><div class="clearfix doc-item">
