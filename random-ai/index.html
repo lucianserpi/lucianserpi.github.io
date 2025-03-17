@@ -87,15 +87,12 @@
         <div>
             <p id="result">-</p>
             <div id="generatedNote">
-                <p id="info"></p> <!-- Generated time, IP, and Browser -->
+                <p id="info"></p> <!-- Generated time, IP, Browser, and History -->
             </div>
         </div>
 
         <!-- Separator Line -->
         <div class="separator"></div>
-
-        <!-- Display Generation History -->
-        <p id="history"></p>
 
         <!-- Second Title: Generate Another One -->
         <h2>Generate Another One</h2>
@@ -212,8 +209,8 @@
             // Store the updated history in localStorage
             localStorage.setItem('history', JSON.stringify(history));
 
-            // Update the history display on the page
-            document.getElementById("history").innerText = `Random number generations today: ${history[today]}`;
+            // Update the history display inside the info section
+            document.getElementById("info").innerText += `\nGenerated today: ${history[today]} times`;
         }
 
         // Generate numbers based on URL params if available and prefill the form
