@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Random AI Number Generator</title>
+    <title>Random AI Number Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,46 +20,62 @@
             margin: auto;
         }
         h1 {
+            font-size: 22px;
             color: #333;
-            font-size: 20px; /* Smaller title */
-            font-weight: lighter; /* Lighter text */
+            font-weight: normal;
+        }
+        #dynamicTitle {
+            font-size: 18px;
+            font-weight: lighter;
+            color: #666;
         }
         #result {
-            font-size: 40px; /* Bigger text */
+            font-size: 40px;
             font-weight: bold;
             color: #333;
-            margin-top: 20px;
+            margin-bottom: 10px;
             padding: 10px;
-            border: 2px dashed #007BFF; /* Dashed border */
+            border: 2px dashed #333;
             display: inline-block;
+            width: 100%;
         }
         #info {
             font-size: 14px;
             color: #555;
-            margin-top: 10px;
             text-align: left;
         }
-        .error {
-            color: red;
-            font-size: 16px;
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
         }
-        .separator {
-            border-top: 1px solid #ddd;
-            margin: 20px 0;
+        .input-group input {
+            width: 48%;
+            padding: 8px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            text-align: center;
         }
         button {
             background-color: #007BFF;
             color: white;
             border: none;
-            cursor: pointer;
-            width: 120px;
             padding: 10px;
             font-size: 16px;
-            margin-top: 10px;
             border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 120px;
         }
         button:hover {
             background-color: #0056b3;
+        }
+        .separator {
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         footer {
             font-size: 12px;
@@ -71,34 +87,29 @@
 <body>
 
     <div class="container">
-        <h1 id="dynamicTitle">Random AI Number Generator</h1>
+        <h1 id="pageTitle">Random AI Number Generator</h1>
+        <h2 id="dynamicTitle"></h2>
+
         <p id="result">-</p>
-        <div id="info"></div>
+        <p id="info"></p>
 
         <div class="separator"></div>
 
+        <h3>Generate Another One</h3> <!-- Moved as a title for the form -->
+
         <form id="randomForm">
             <div class="input-group">
-                <div>
-                    <label for="count">Count:</label>
-                    <input type="number" id="count" name="count" min="1" required>
-                </div>
-                <div>
-                    <label for="max">Max:</label>
-                    <input type="number" id="max" name="max" min="1" required>
-                </div>
+                <input type="number" id="count" name="count" min="1" required placeholder="Count">
+                <input type="number" id="max" name="max" min="1" required placeholder="Max">
             </div>
             <button type="submit">Generate</button>
         </form>
 
         <p id="errorMessage" class="error"></p>
-
-        <div class="separator"></div>
-        <h2>Generate Another One</h2>
     </div>
 
     <footer>
-        <p>Code generated using <strong>ChatGPT</strong> (Version GPT-4.0)</p>
+        <p>Code generated using <strong>ChatGPT</strong> (Version GPT-4.0) | Under 25</p>
     </footer>
 
     <script>
@@ -108,7 +119,13 @@
             if (values) {
                 return values.split('-').map(Number);
             }
-            return [6, 12]; // Default values
+            return [6, 12]; 
+        }
+
+        function updateTitles(count, max) {
+            document.title = `Random AI ${count} from ${max} Number Generator`;
+            document.getElementById('pageTitle').innerHTML = `Random AI <b>${count}</b> from <b>${max}</b> Number Generator`;
+            document.getElementById('dynamicTitle').innerText = `Generating ${count} numbers from a max of ${max}`;
         }
 
         async function getIP() {
@@ -121,38 +138,9 @@
             }
         }
 
-        function getBrowserInfo() {
-            let userAgent = navigator.userAgent;
-            let browserName = "Unknown";
-            let browserVersion = "Unknown";
-            let deviceType = "Desktop";
-
-            if (/Chrome/.test(userAgent)) {
-                browserName = "Chrome";
-                browserVersion = userAgent.match(/Chrome\/(\d+)/)?.[1] || "Unknown";
-            } else if (/Firefox/.test(userAgent)) {
-                browserName = "Firefox";
-                browserVersion = userAgent.match(/Firefox\/(\d+)/)?.[1] || "Unknown";
-            } else if (/Safari/.test(userAgent) && !/Chrome/.test(userAgent)) {
-                browserName = "Safari";
-                browserVersion = userAgent.match(/Version\/(\d+)/)?.[1] || "Unknown";
-            } else if (/Edge/.test(userAgent)) {
-                browserName = "Edge";
-                browserVersion = userAgent.match(/Edg\/(\d+)/)?.[1] || "Unknown";
-            }
-
-            if (/Android/.test(userAgent)) {
-                deviceType = "Android";
-            } else if (/iPhone|iPad|iPod/.test(userAgent)) {
-                deviceType = "iOS";
-            }
-
-            return { browserName, browserVersion, deviceType };
-        }
-
         async function generateNumbers(count, max) {
             if (count > max) {
-                document.getElementById("result").innerText = "Error: Count cannot exceed Max!";
+                document.getElementById("result").innerText = "Error: Count cannot be greater than Max!";
                 return;
             }
 
@@ -166,27 +154,26 @@
 
             let ip = await getIP();
             let now = new Date();
-            let options = { timeZone: 'Europe/Bucharest', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            let timestamp = new Intl.DateTimeFormat('en-US', options).format(now);
+            let timestamp = now.toLocaleString('en-GB', { timeZone: 'Europe/Bucharest' });
 
-            let { browserName, browserVersion, deviceType } = getBrowserInfo();
+            let ua = navigator.userAgent;
+            let device = /Android|iPhone/i.test(ua) ? "Mobile" : "Desktop";
+            let browser = /Chrome/.test(ua) ? "Chrome" : /Firefox/.test(ua) ? "Firefox" : /Safari/.test(ua) ? "Safari" : "Unknown";
+            let version = ua.match(/(Chrome|Firefox|Safari)\/(\d+)/);
+            let browserVersion = version ? version[2] : "Unknown";
 
             document.getElementById("result").innerText = numbers.join(", ");
             document.getElementById("info").innerText = 
-                `Generated at: ${timestamp}\nIP: ${ip}\nBrowser: ${browserName} ${browserVersion}\nDevice: ${deviceType}`;
-        }
+                `Generated at: ${timestamp}\nIP: ${ip}\nBrowser: ${browser} v${browserVersion}\nDevice: ${device}`;
 
-        function updatePageTitle(count, max) {
-            let titleText = `Random AI ${count} from ${max} Number Generator`;
-            document.title = titleText;
-            document.getElementById("dynamicTitle").innerHTML = `Random AI <b>${count}</b> from <b>${max}</b> Number Generator`;
+            updateHistory();
         }
 
         function prefillForm() {
             const [count, max] = getValuesFromURL();
             document.getElementById('count').value = count;
             document.getElementById('max').value = max;
-            updatePageTitle(count, max);
+            updateTitles(count, max);
         }
 
         document.getElementById('randomForm').onsubmit = function(event) {
@@ -195,26 +182,38 @@
             const max = parseInt(document.getElementById('max').value);
 
             if (count <= 0 || max <= 0) {
-                document.getElementById("errorMessage").innerText = "Error: Both values must be greater than 0.";
+                document.getElementById("errorMessage").innerText = "Error: Both Count and Max must be greater than 0.";
                 return;
             }
+
             if (count > max) {
-                document.getElementById("errorMessage").innerText = "Error: Count must be <= Max.";
+                document.getElementById("errorMessage").innerText = "Error: Count must be less than or equal to Max.";
                 return;
             }
 
             document.getElementById("errorMessage").innerText = "";
+
             generateNumbers(count, max);
 
-            const newUrl = `${window.location.pathname}?values=${count}-${max}`;
-            history.pushState({}, '', newUrl);
-            updatePageTitle(count, max);
+            let newUrl = `?values=${count}-${max}`;
+            window.history.pushState({}, '', newUrl);
+        }
+
+        function updateHistory() {
+            let today = new Date().toISOString().split('T')[0];
+            let history = JSON.parse(localStorage.getItem('history')) || {};
+            history[today] = (history[today] || 0) + 1;
+            localStorage.setItem('history', JSON.stringify(history));
+            document.getElementById("info").innerText += `\nGenerated today: ${history[today]} times`;
         }
 
         window.onload = function() {
             prefillForm();
             const [count, max] = getValuesFromURL();
-            generateNumbers(count, max);
+            if (count && max) {
+                generateNumbers(count, max);
+            }
+            updateHistory();
         };
     </script>
 
