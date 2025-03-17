@@ -38,17 +38,34 @@
         }
         .input-group {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
+            align-items: center;
+            justify-content: center;
             margin-top: 10px;
+            gap: 8px;
+        }
+        .input-group label {
+            font-size: 14px;
+            color: #333;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .input-group input {
-            width: 48%;
-            padding: 8px;
-            border-radius: 20px;
+            width: 60px;
+            padding: 6px;
+            border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 16px;
             text-align: center;
+        }
+        .dash {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
         }
         button {
             background-color: #007BFF;
@@ -89,8 +106,15 @@
 
         <form id="randomForm">
             <div class="input-group">
-                <input type="number" id="count" name="count" min="1" required placeholder="Count">
-                <input type="number" id="max" name="max" min="1" required placeholder="Max">
+                <div class="input-container">
+                    <label for="count">Count</label>
+                    <input type="number" id="count" name="count" min="1" required>
+                </div>
+                <span class="dash">-</span>
+                <div class="input-container">
+                    <label for="max">Max</label>
+                    <input type="number" id="max" name="max" min="1" required>
+                </div>
             </div>
             <button type="submit">Generate</button>
         </form>
