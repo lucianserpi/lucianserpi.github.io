@@ -20,6 +20,11 @@
             margin: auto;
         }
         h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        h2 {
+            font-size: 20px;
             color: #333;
         }
         input, button {
@@ -52,8 +57,8 @@
             text-align: left;
         }
         #history {
-            font-size: 16px;
-            margin-top: 20px;
+            font-size: 14px;
+            margin-top: 10px;
             color: #333;
         }
         .error {
@@ -65,6 +70,11 @@
             color: #555;
             margin-top: 10px;
             text-align: left;
+        }
+        .separator {
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -81,8 +91,14 @@
             </div>
         </div>
 
-        <!-- History Section -->
+        <!-- Separator Line -->
+        <div class="separator"></div>
+
+        <!-- Display Generation History -->
         <p id="history"></p>
+
+        <!-- Second Title: Generate Another One -->
+        <h2>Generate Another One</h2>
 
         <!-- Form for Generating New Numbers -->
         <form id="randomForm">
