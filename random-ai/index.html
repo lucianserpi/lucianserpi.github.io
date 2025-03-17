@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Random AI Number Generator</title> <!-- Initial Title -->
+    <title id="pageTitle">Random AI Number Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,103 +19,60 @@
             max-width: 400px;
             margin: auto;
         }
-        h1 {
-            font-size: 24px;
-            color: #333;
-        }
-        h2 {
-            font-size: 20px;
+        h1, h2 {
             color: #333;
         }
         #randomForm {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             margin-top: 20px;
         }
-
-        #randomForm label {
-            margin: 10px 0;
-            font-size: 16px;
-        }
-
-        /* Added Flexbox for input fields on the same line */
         .input-group {
             display: flex;
             justify-content: space-between;
             width: 100%;
         }
-
-        .input-group label {
-            margin: 5px 10px;
-            text-align: center;
-        }
-
         .input-group input {
-            width: 45%; /* Make inputs take up half of the available width */
+            width: 45%;
             padding: 8px;
             border-radius: 5px;
             font-size: 16px;
         }
-
-        #randomForm button {
-            width: 120px; /* Adjust the width of the button */
-            padding: 10px;
-            font-size: 16px;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-
         button {
             background-color: #007BFF;
             color: white;
             border: none;
             cursor: pointer;
+            width: 120px;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
         }
-
         button:hover {
             background-color: #0056b3;
         }
-
         #result {
             font-size: 36px;
             font-weight: bold;
             color: #333;
             margin-top: 20px;
         }
-
         #info {
             font-size: 14px;
             color: #555;
             margin-top: 10px;
             text-align: left;
         }
-
-        #history {
-            font-size: 14px;
-            margin-top: 10px;
-            color: #333;
-        }
-
         .error {
             color: red;
             font-size: 16px;
         }
-
-        #generatedNote {
-            font-size: 14px;
-            color: #555;
-            margin-top: 10px;
-            text-align: left;
-        }
-
         .separator {
             border-top: 1px solid #ddd;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
-
         footer {
             font-size: 12px;
             color: #777;
@@ -126,190 +83,152 @@
 <body>
 
     <div class="container">
-        <h1>Random AI Number Generator</h1>
+        <h1 id="dynamicTitle">Random AI Number Generator</h1>
+        <p id="result">-</p>
+        <div id="info"></div>
 
-        <!-- Display Generated Numbers First -->
-        <div>
-            <p id="result">-</p>
-            <div id="generatedNote">
-                <p id="info"></p> <!-- Generated time, IP, Browser, and History -->
-            </div>
-        </div>
-
-        <!-- Separator Line -->
         <div class="separator"></div>
 
-        <!-- Form for Generating New Numbers -->
         <form id="randomForm">
             <div class="input-group">
                 <div>
                     <label for="count">Count:</label>
-                    <input type="number" id="count" name="count" min="1" required><br>
+                    <input type="number" id="count" name="count" min="1" required>
                 </div>
                 <div>
                     <label for="max">Max:</label>
-                    <input type="number" id="max" name="max" min="1" required><br>
+                    <input type="number" id="max" name="max" min="1" required>
                 </div>
             </div>
-
             <button type="submit">Generate</button>
         </form>
 
         <p id="errorMessage" class="error"></p>
 
-        <!-- Second Title: Generate Another One (Now below the form) -->
         <div class="separator"></div>
         <h2>Generate Another One</h2>
     </div>
 
-    <div class="separator"></div>
-
-    <!-- Footer with ChatGPT attribution -->
     <footer>
-        <p>Code generated using <strong>ChatGPT</strong> (Version GPT-4.0) under 25 min.</p>
+        <p>Code generated using <strong>ChatGPT</strong> (Version GPT-4.0)</p>
     </footer>
 
-<script>
-    // Function to extract the 'values' parameter from the URL (e.g., ?values=6-12)
-    function getValuesFromURL() {
-        const params = new URLSearchParams(window.location.search);
-        const values = params.get('values'); // Get the 'values' parameter value
-        if (values) {
-            return values.split('-').map(Number); // Convert the '6-12' value to an array of numbers
-        }
-        return [6, 12]; // Default to 6 random numbers from 12 if not specified
-    }
-
-    async function getIP() {
-        try {
-            let response = await fetch("https://api64.ipify.org?format=json");
-            let data = await response.json();
-            return data.ip;
-        } catch (error) {
-            return "Unknown IP";
-        }
-    }
-
-    async function generateNumbers(count, max) {
-        // If count is more than max, return an error
-        if (count > max) {
-            document.getElementById("result").innerText = "Error: Cannot generate more numbers than the maximum range!";
-            return;
+    <script>
+        function getValuesFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const values = params.get('values');
+            if (values) {
+                return values.split('-').map(Number);
+            }
+            return [6, 12]; // Default values
         }
 
-        // Generate unique random numbers
-        let numbers = [];
-        while (numbers.length < count) {
-            let num = Math.floor(Math.random() * max) + 1;
-            if (!numbers.includes(num)) {
-                numbers.push(num);
+        async function getIP() {
+            try {
+                let response = await fetch("https://api64.ipify.org?format=json");
+                let data = await response.json();
+                return data.ip;
+            } catch (error) {
+                return "Unknown IP";
             }
         }
 
-        // Get IP and Browser Info
-        let ip = await getIP();
-        let now = new Date();
-        
-        // Format the time in Romania's timezone
-        let options = { timeZone: 'Europe/Bucharest', hour12: true };
-        let timestamp = new Intl.DateTimeFormat('en-US', options).format(now);
+        function getBrowserInfo() {
+            let userAgent = navigator.userAgent;
+            let browserName = "Unknown";
+            let browserVersion = "Unknown";
+            let deviceType = "Desktop";
 
-        // Get browser info (shortened)
-        let browser = navigator.userAgent;
-        let browserName = 'Unknown';
-        if (browser.indexOf('Chrome') > -1) {
-            browserName = 'Chrome';
-        } else if (browser.indexOf('Firefox') > -1) {
-            browserName = 'Firefox';
-        } else if (browser.indexOf('Safari') > -1) {
-            browserName = 'Safari';
-        } else if (browser.indexOf('Edge') > -1) {
-            browserName = 'Edge';
+            if (/Chrome/.test(userAgent)) {
+                browserName = "Chrome";
+                browserVersion = userAgent.match(/Chrome\/(\d+)/)?.[1] || "Unknown";
+            } else if (/Firefox/.test(userAgent)) {
+                browserName = "Firefox";
+                browserVersion = userAgent.match(/Firefox\/(\d+)/)?.[1] || "Unknown";
+            } else if (/Safari/.test(userAgent) && !/Chrome/.test(userAgent)) {
+                browserName = "Safari";
+                browserVersion = userAgent.match(/Version\/(\d+)/)?.[1] || "Unknown";
+            } else if (/Edge/.test(userAgent)) {
+                browserName = "Edge";
+                browserVersion = userAgent.match(/Edg\/(\d+)/)?.[1] || "Unknown";
+            }
+
+            if (/Android/.test(userAgent)) {
+                deviceType = "Android";
+            } else if (/iPhone|iPad|iPod/.test(userAgent)) {
+                deviceType = "iOS";
+            }
+
+            return { browserName, browserVersion, deviceType };
         }
 
-        // Display the results
-        document.getElementById("result").innerText = numbers.join(", ");
-        document.getElementById("info").innerText = 
-            `Generated at: ${timestamp}\nIP: ${ip}\nBrowser: ${browserName}`;
+        async function generateNumbers(count, max) {
+            if (count > max) {
+                document.getElementById("result").innerText = "Error: Count cannot exceed Max!";
+                return;
+            }
 
-        // Update the generation history
-        updateHistory();
-    }
+            let numbers = [];
+            while (numbers.length < count) {
+                let num = Math.floor(Math.random() * max) + 1;
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
 
-    // Prefill the form using the URL parameters or fallback to default values
-    function prefillForm() {
-        const [count, max] = getValuesFromURL();
-        document.getElementById('count').value = count;
-        document.getElementById('max').value = max;
-        
-        // Dynamically update the title using the count and max
-        const pageTitle = document.getElementById('pageTitle');
-        pageTitle.textContent = `Random AI ${count} from ${max} Number Generator`; // Set dynamic title
-    }
+            let ip = await getIP();
+            let now = new Date();
+            let options = { timeZone: 'Europe/Bucharest', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            let timestamp = new Intl.DateTimeFormat('en-US', options).format(now);
 
-    // Form submission validation
-    document.getElementById('randomForm').onsubmit = function(event) {
-        event.preventDefault();
-        const count = parseInt(document.getElementById('count').value);
-        const max = parseInt(document.getElementById('max').value);
+            let { browserName, browserVersion, deviceType } = getBrowserInfo();
 
-        // Validation: count and max must be greater than 0, and max must be greater than count
-        if (count <= 0 || max <= 0) {
-            document.getElementById("errorMessage").innerText = "Error: Both 'Count' and 'Max' must be greater than 0.";
-            return;
+            document.getElementById("result").innerText = numbers.join(", ");
+            document.getElementById("info").innerText = 
+                `Generated at: ${timestamp}\nIP: ${ip}\nBrowser: ${browserName} ${browserVersion}\nDevice: ${deviceType}`;
         }
 
-        if (count > max) {
-            document.getElementById("errorMessage").innerText = "Error: 'Count' must be less than or equal to 'Max'.";
-            return;
+        function updatePageTitle(count, max) {
+            let titleText = `Random AI ${count} from ${max} Number Generator`;
+            document.title = titleText;
+            document.getElementById("dynamicTitle").innerText = titleText;
         }
 
-        // Clear error message if validation passes
-        document.getElementById("errorMessage").innerText = "";
-
-        // Generate the numbers
-        generateNumbers(count, max);
-
-        // Update the URL with the new count and max values
-        const newUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?values=${count}-${max}`;
-        history.pushState({ path: newUrl }, '', newUrl); // Update the URL without reloading
-    }
-
-    // Update history of random number generations
-    function updateHistory() {
-        let today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-
-        // Get the previous date and count from localStorage
-        let history = JSON.parse(localStorage.getItem('history')) || {};
-        if (!history[today]) {
-            history[today] = 0;
+        function prefillForm() {
+            const [count, max] = getValuesFromURL();
+            document.getElementById('count').value = count;
+            document.getElementById('max').value = max;
+            updatePageTitle(count, max);
         }
 
-        // Increment the count for today
-        history[today]++;
+        document.getElementById('randomForm').onsubmit = function(event) {
+            event.preventDefault();
+            const count = parseInt(document.getElementById('count').value);
+            const max = parseInt(document.getElementById('max').value);
 
-        // Store the updated history in localStorage
-        localStorage.setItem('history', JSON.stringify(history));
+            if (count <= 0 || max <= 0) {
+                document.getElementById("errorMessage").innerText = "Error: Both values must be greater than 0.";
+                return;
+            }
+            if (count > max) {
+                document.getElementById("errorMessage").innerText = "Error: Count must be <= Max.";
+                return;
+            }
 
-        // Update the history display inside the info section
-        document.getElementById("info").innerText += `\nGenerated today: ${history[today]} times`;
-    }
+            document.getElementById("errorMessage").innerText = "";
+            generateNumbers(count, max);
 
-    // Generate numbers based on URL params if available and prefill the form
-    window.onload = function() {
-        prefillForm();
-
-        // Get the values from the URL and auto-generate the numbers if they're present
-        const [count, max] = getValuesFromURL();
-        if (count && max) {
-            generateNumbers(count, max); // Automatically generate on first load if values are set
+            const newUrl = `${window.location.pathname}?values=${count}-${max}`;
+            history.pushState({}, '', newUrl);
+            updatePageTitle(count, max);
         }
 
-        // Update history on page load
-        updateHistory();
-    };
-</script>
-
+        window.onload = function() {
+            prefillForm();
+            const [count, max] = getValuesFromURL();
+            generateNumbers(count, max);
+        };
+    </script>
 
 </body>
 </html>
