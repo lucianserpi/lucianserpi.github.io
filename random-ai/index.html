@@ -101,8 +101,10 @@
 </head>
 <body>
 
-    <div class="logo">🎲</div>
-    <h1 id="pageTitle" class="title">Random AI Number Generator</h1>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <div class="logo">🎲</div>
+        <h1 id="pageTitle" class="title">Random AI<br> <span id="dynamicTitle">numbers Generator</span></h1>
+    </div>
 
     <div class="container">
         <p id="result">generating ...</p>
@@ -146,7 +148,7 @@
 
         function updateTitles(count, max) {
             document.title = `Random AI ${count} from ${max} Number Generator`;
-            document.getElementById('pageTitle').innerHTML = `Random AI <b>${count}</b> from <b>${max}</b> Number Generator`;
+            document.getElementById('dynamicTitle').innerHTML = `<b>${count}</b> from <b>${max}</b>`;
             document.getElementById('result').innerText = `generating ${count}/${max}...`;
         }
 
