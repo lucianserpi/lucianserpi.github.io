@@ -27,14 +27,26 @@
             font-size: 20px;
             color: #333;
         }
-        input, button {
-            font-size: 18px;
-            padding: 10px;
-            margin: 10px;
-            width: 80%;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+        #randomForm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
         }
+
+        #randomForm label {
+            margin-right: 10px;
+        }
+
+        #randomForm input {
+            width: 60px; /* Adjust the width for inputs */
+        }
+
+        #randomForm button {
+            width: 120px; /* Adjust the width of the button */
+        }
+
         button {
             background-color: #007BFF;
             color: white;
@@ -99,10 +111,10 @@
 
         <!-- Form for Generating New Numbers -->
         <form id="randomForm">
-            <label for="count">Count (Number of random numbers to generate):</label>
+            <label for="count">Count:</label>
             <input type="number" id="count" name="count" min="1" required><br>
 
-            <label for="max">Max (Maximum number to generate from):</label>
+            <label for="max">Max:</label>
             <input type="number" id="max" name="max" min="1" required><br>
 
             <button type="submit">Generate</button>
@@ -151,13 +163,28 @@
             // Get IP and Browser Info
             let ip = await getIP();
             let now = new Date();
-            let timestamp = now.toLocaleString();
-            let browserInfo = navigator.userAgent;
+            
+            // Format the time in Romania's timezone
+            let options = { timeZone: 'Europe/Bucharest', hour12: true };
+            let timestamp = new Intl.DateTimeFormat('en-US', options).format(now);
+
+            // Get browser info (shortened)
+            let browser = navigator.userAgent;
+            let browserName = 'Unknown';
+            if (browser.indexOf('Chrome') > -1) {
+                browserName = 'Chrome';
+            } else if (browser.indexOf('Firefox') > -1) {
+                browserName = 'Firefox';
+            } else if (browser.indexOf('Safari') > -1) {
+                browserName = 'Safari';
+            } else if (browser.indexOf('Edge') > -1) {
+                browserName = 'Edge';
+            }
 
             // Display the results
             document.getElementById("result").innerText = numbers.join(", ");
             document.getElementById("info").innerText = 
-                `Generated at: ${timestamp}\nIP: ${ip}\nBrowser: ${browserInfo}`;
+                `Generated at: ${timestamp}\nIP: ${ip}\nBrowser: ${browserName}`;
 
             // Update the generation history
             updateHistory();
