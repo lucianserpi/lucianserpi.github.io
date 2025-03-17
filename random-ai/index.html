@@ -39,7 +39,7 @@
         button:hover {
             background-color: #0056b3;
         }
-        #result, #info {
+        #result, #info, #history {
             font-size: 18px;
             margin-top: 20px;
             color: #333;
@@ -60,101 +60,4 @@
         
         <form id="randomForm">
             <label for="count">Count (Number of random numbers to generate):</label>
-            <input type="number" id="count" name="count" min="1" required><br>
-
-            <label for="max">Max (Maximum number to generate from):</label>
-            <input type="number" id="max" name="max" min="1" required><br>
-
-            <button type="submit">Generate</button>
-        </form>
-
-        <p id="result">-</p>
-        <p id="info"></p>
-        <p id="errorMessage" class="error"></p>
-    </div>
-
-    <script>
-        // Function to extract the 'values' parameter from the URL (e.g., ?values=6-12)
-        function getValuesFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            const values = params.get('values'); // Get the 'values' parameter value
-            if (values) {
-                return values.split('-').map(Number); // Convert the '6-12' value to an array of numbers
-            }
-            return [6, 12]; // Default to 6 random numbers from 12 if not specified
-        }
-
-        async function getIP() {
-            try {
-                let response = await fetch("https://api64.ipify.org?format=json");
-                let data = await response.json();
-                return data.ip;
-            } catch (error) {
-                return "Unknown IP";
-            }
-        }
-
-        async function generateNumbers(count, max) {
-            // If count is more than max, return an error
-            if (count > max) {
-                document.getElementById("result").innerText = "Error: Cannot generate more numbers than the maximum range!";
-                return;
-            }
-
-            // Generate unique random numbers
-            let numbers = [];
-            while (numbers.length < count) {
-                let num = Math.floor(Math.random() * max) + 1;
-                if (!numbers.includes(num)) {
-                    numbers.push(num);
-                }
-            }
-
-            // Get IP and Browser Info
-            let ip = await getIP();
-            let now = new Date();
-            let timestamp = now.toLocaleString();
-            let browserInfo = navigator.userAgent;
-
-            // Display the results
-            document.getElementById("result").innerText = numbers.join(", ");
-            document.getElementById("info").innerText = 
-                `Generated at: ${timestamp} | IP: ${ip} | Browser: ${browserInfo}`;
-        }
-
-        // Prefill the form using the URL parameters or fallback to default values
-        function prefillForm() {
-            const [count, max] = getValuesFromURL();
-            document.getElementById('count').value = count;
-            document.getElementById('max').value = max;
-        }
-
-        // Form submission validation
-        document.getElementById('randomForm').onsubmit = function(event) {
-            event.preventDefault();
-            const count = parseInt(document.getElementById('count').value);
-            const max = parseInt(document.getElementById('max').value);
-
-            // Validation: count and max must be greater than 0, and max must be greater than count
-            if (count <= 0 || max <= 0) {
-                document.getElementById("errorMessage").innerText = "Error: Both 'Count' and 'Max' must be greater than 0.";
-                return;
-            }
-
-            if (count > max) {
-                document.getElementById("errorMessage").innerText = "Error: 'Count' must be less than or equal to 'Max'.";
-                return;
-            }
-
-            // Clear error message if validation passes
-            document.getElementById("errorMessage").innerText = "";
-
-            generateNumbers(count, max);
-        }
-
-        // Prefill form on page load
-        window.onload = prefillForm;
-    </script>
-
-</body>
-</html>
+            <input type="number" id="count" name="count" min="1"
