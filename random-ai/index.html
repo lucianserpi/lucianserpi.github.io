@@ -24,20 +24,12 @@
             color: #333;
             font-weight: normal;
         }
-        #dynamicTitle {
-            font-size: 18px;
-            font-weight: lighter;
-            color: #666;
-        }
         #result {
             font-size: 40px;
             font-weight: bold;
             color: #333;
-            margin-bottom: 10px;
-            padding: 10px;
+            padding: 16px;
             border: 2px dashed #333;
-            display: inline-block;
-            width: 100%;
         }
         #info {
             font-size: 14px;
@@ -88,14 +80,12 @@
 
     <div class="container">
         <h1 id="pageTitle">Random AI Number Generator</h1>
-        <h2 id="dynamicTitle"></h2>
-
-        <p id="result">-</p>
+        <p id="result">generating ...</p>
         <p id="info"></p>
 
         <div class="separator"></div>
 
-        <h3>Generate Another One</h3> <!-- Moved as a title for the form -->
+        <h3>Generate Another One</h3>
 
         <form id="randomForm">
             <div class="input-group">
@@ -109,7 +99,7 @@
     </div>
 
     <footer>
-        <p>Code generated using <strong>ChatGPT</strong> (Version GPT-4.0) | Under 25</p>
+        <p>Code generated using <strong>ChatGPT</strong> (Version GPT-4.0) | under 25 minutes</p>
     </footer>
 
     <script>
@@ -125,7 +115,7 @@
         function updateTitles(count, max) {
             document.title = `Random AI ${count} from ${max} Number Generator`;
             document.getElementById('pageTitle').innerHTML = `Random AI <b>${count}</b> from <b>${max}</b> Number Generator`;
-            document.getElementById('dynamicTitle').innerText = `Generating ${count} numbers from a max of ${max}`;
+            document.getElementById('result').innerText = `generating ${count}/${max}...`;
         }
 
         async function getIP() {
