@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+</head>
+<body>
+    <h1>Random Number Generator</h1>
+    <p>Click the button to generate random numbers!</p>
+    <button onclick="generateRandomNumbers()">Generate Numbers</button>
+    <div id="random-numbers"></div>
+
+    <script>
+        function generateRandomNumbers() {
+            let numCount = 6; // Number of random numbers to generate
+            let maxRange = 12; // The maximum number for the range
+
+            let numbers = [];
+            while (numbers.length < numCount) {
+                let randomNum = Math.floor(Math.random() * maxRange) + 1;
+                if (!numbers.includes(randomNum)) {
+                    numbers.push(randomNum);
+                }
+            }
+
+            document.getElementById("random-numbers").innerText = "Generated numbers: " + numbers.join(", ");
+        }
+    </script>
+</body>
+</html>
