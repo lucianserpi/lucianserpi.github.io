@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random.AI: Dynamic Random Number Generator</title>
+    <title>Random AI Number Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,28 +39,46 @@
         button:hover {
             background-color: #0056b3;
         }
-        #result, #info, #history {
-            font-size: 18px;
+        #result {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+        #info {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            text-align: left;
+        }
+        #history {
+            font-size: 16px;
             margin-top: 20px;
             color: #333;
-            font-weight: bold;
-            word-wrap: break-word;
         }
         .error {
             color: red;
             font-size: 16px;
+        }
+        #generatedNote {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Random.AI: Dynamic Random Number Generator</h1>
+        <h1>Random AI Number Generator</h1>
 
         <!-- Display Generated Numbers First -->
         <div>
             <p id="result">-</p>
-            <p id="info"></p>
+            <div id="generatedNote">
+                <p id="info"></p> <!-- Generated time, IP, and Browser -->
+            </div>
         </div>
 
         <!-- History Section -->
@@ -126,7 +144,7 @@
             // Display the results
             document.getElementById("result").innerText = numbers.join(", ");
             document.getElementById("info").innerText = 
-                `Generated at: ${timestamp} | IP: ${ip} | Browser: ${browserInfo}`;
+                `Generated at: ${timestamp}\nIP: ${ip}\nBrowser: ${browserInfo}`;
 
             // Update the generation history
             updateHistory();
@@ -176,3 +194,26 @@
             history[today]++;
 
             // Store the updated history in localStorage
+            localStorage.setItem('history', JSON.stringify(history));
+
+            // Update the history display on the page
+            document.getElementById("history").innerText = `Random number generations today: ${history[today]}`;
+        }
+
+        // Generate numbers based on URL params if available and prefill the form
+        window.onload = function() {
+            prefillForm();
+
+            // Get the values from the URL and auto-generate the numbers if they're present
+            const [count, max] = getValuesFromURL();
+            if (count && max) {
+                generateNumbers(count, max); // Automatically generate on first load if values are set
+            }
+
+            // Update history on page load
+            updateHistory();
+        };
+    </script>
+
+</body>
+</html>
