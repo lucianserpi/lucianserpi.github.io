@@ -191,7 +191,7 @@
         function updatePageTitle(count, max) {
             let titleText = `Random AI ${count} from ${max} Number Generator`;
             document.title = titleText;
-            document.getElementById("dynamicTitle").innerText = titleText;
+            document.getElementById("dynamicTitle").innerHTML = `Random AI <b>${count}</b> from <b>${max}</b> Number Generator`;
         }
 
         function prefillForm() {
