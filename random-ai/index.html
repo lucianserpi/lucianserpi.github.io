@@ -146,7 +146,10 @@
             const params = new URLSearchParams(window.location.search);
             const values = params.get('values');
             if (values) {
-                return values.split('-').map(Number);
+                let [count, max] = values.split('-').map(Number);
+                if (!isNaN(count) && !isNaN(max) && count > 0 && max > 0 && count <= max) {
+                    return [count, max];
+                }
             }
             return [6, 12]; 
         }
