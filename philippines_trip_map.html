@@ -52,7 +52,7 @@
 
     addMarker(14.5995, 120.9842, "Manila", "21 Oct & 4 Nov");
     addMarker(12.0526, 119.9206, "Coron (Busuanga)", "22–24 Oct");
-    addMarker(11.2029, 119.4142, "El Nido", "27–28 Oct");
+    addMarker(11.2029, 119.4142, "El Nido", "27–28 Oct"); // updated
     addMarker(9.5206, 123.4291, "Oslob", "29 Oct");
     addMarker(9.943, 123.3956, "Moalboal", "30 Oct");
     addMarker(9.6477, 123.8556, "Bohol (Tagbilaran)", "31 Oct – 1 Nov");
@@ -70,9 +70,8 @@
 
     L.polyline(route, {
         color: 'red',
-        weight: 2,
-        opacity: 0.9,
-        smoothFactor: 1.5
+        weight: 2, // made thinner
+        opacity: 0.7 // kept original opacity
     }).addTo(map);
 </script>
 </body>
