@@ -1,40 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
     <title>Philippines Trip Map</title>
-    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <style>html, body {margin: 0; height: 100%;}</style>
+    <style>#map {height: 100%;}</style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
 </head>
 <body>
-<div id="map" style="width: 100%; height: 100%;"></div>
+<div id="map"></div>
 <script>
     var map = L.map('map', {
         center: [11.5, 122.0],
         zoom: 6
     });
 
-    L.tileLayer("https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png", {
-        attribution: "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='http://cartodb.com/attributions'>CartoDB</a>",
-        subdomains: "abc",
-        maxZoom: 18
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors"
     }).addTo(map);
 
     var lastOpenedPopup = null;
 
-    function createMarker(lat, lng, title, popupText) {
+    function addMarker(lat, lng, location, date) {
         var marker = L.marker([lat, lng], {
             icon: L.AwesomeMarkers.icon({
                 icon: 'info-sign',
@@ -44,29 +35,31 @@
             })
         }).addTo(map);
 
-        var popup = L.popup().setContent(popupText);
-        marker.bindTooltip(title, {sticky: true});
-        marker.bindPopup(popup);
+        var popupContent = `<strong>${location}</strong><br>${date}`;
+        var popup = L.popup().setContent(popupContent);
 
-        marker.on('click', function() {
+        marker.bindPopup(popup);
+        marker.bindTooltip(location, {sticky: true});
+
+        marker.on('click', function () {
             if (lastOpenedPopup && map.hasLayer(lastOpenedPopup)) {
                 map.closePopup(lastOpenedPopup);
             }
-            marker.openPopup();
+            this.openPopup();
             lastOpenedPopup = popup;
         });
     }
 
-    createMarker(14.5995, 120.9842, "Manila", "Manila (21 Oct & 4 Nov)");
-    createMarker(12.0526, 119.9206, "Coron (Busuanga)", "Coron (Busuanga) (22–24 Oct)");
-    createMarker(11.2029, 119.4142, "El Nido", "El Nido (24–28 Oct)");
-    createMarker(9.5206, 123.4291, "Oslob", "Oslob (29 Oct)");
-    createMarker(9.943, 123.3956, "Moalboal", "Moalboal (30 Oct)");
-    createMarker(9.6477, 123.8556, "Bohol (Tagbilaran)", "Bohol (Tagbilaran) (31 Oct – 1 Nov)");
-    createMarker(11.9674, 121.9248, "Boracay (Caticlan)", "Boracay (Caticlan) (2–3 Nov)");
+    addMarker(14.5995, 120.9842, "Manila", "21 Oct & 4 Nov");
+    addMarker(12.0526, 119.9206, "Coron (Busuanga)", "22–24 Oct");
+    addMarker(11.2029, 119.4142, "El Nido", "24–28 Oct");
+    addMarker(9.5206, 123.4291, "Oslob", "29 Oct");
+    addMarker(9.943, 123.3956, "Moalboal", "30 Oct");
+    addMarker(9.6477, 123.8556, "Bohol (Tagbilaran)", "31 Oct – 1 Nov");
+    addMarker(11.9674, 121.9248, "Boracay (Caticlan)", "2–3 Nov");
 
-    // Add polyline
-    var latlngs = [
+    // Route line
+    var route = [
         [14.5995, 120.9842],
         [12.0526, 119.9206],
         [11.2029, 119.4142],
@@ -76,24 +69,11 @@
         [11.9674, 121.9248]
     ];
 
-    L.polyline(latlngs, {
+    L.polyline(route, {
         color: 'red',
         weight: 3,
         opacity: 0.7
     }).addTo(map);
-
-    // Add minimap
-    var miniMap = new L.Control.MiniMap(
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            attribution: "Data by &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a>",
-            subdomains: "abc"
-        }),
-        {
-            toggleDisplay: true,
-            minimized: false,
-            position: "bottomright"
-        }
-    ).addTo(map);
 </script>
 </body>
 </html>
