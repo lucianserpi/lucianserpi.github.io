@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a09107194c3dea899dce216dae128a32 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a09107194c3dea899dce216dae128a32" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a09107194c3dea899dce216dae128a32 = L.map(
+                "map_a09107194c3dea899dce216dae128a32",
+                {
+                    center: [11.5, 122.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3627063c11a62f660ae2b5af03e75466 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a09107194c3dea899dce216dae128a32);
+        
+    
+            var marker_7a028bb63cb6a854b3e57d20ff491013 = L.marker(
+                [14.5995, 120.9842],
+                {}
+            ).addTo(map_a09107194c3dea899dce216dae128a32);
+        
+    
+            var icon_1a08494bc2cc0f8159796d61a740832f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7a028bb63cb6a854b3e57d20ff491013.setIcon(icon_1a08494bc2cc0f8159796d61a740832f);
+        
+    
+        var popup_f75b6ccb2a067d18a3e8c8e792a4addc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_66b7529d9199842d2eb9dc3a03ca7776 = $(`<div id="html_66b7529d9199842d2eb9dc3a03ca7776" style="width: 100.0%; height: 100.0%;">Manila (21 Oct & 4 Nov)</div>`)[0];
+            popup_f75b6ccb2a067d18a3e8c8e792a4addc.setContent(html_66b7529d9199842d2eb9dc3a03ca7776);
+        
+
+        marker_7a028bb63cb6a854b3e57d20ff491013.bindPopup(popup_f75b6ccb2a067d18a3e8c8e792a4addc)
+        ;
+
+        
+    
+    
+            marker_7a028bb63cb6a854b3e57d20ff491013.bindTooltip(
+                `<div>
+                     Manila
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ee3c22766d20325ecf96b1466fee6323 = L.marker(
+                [12.0526, 119.9206],
+                {}
+            ).addTo(map_a09107194c3dea899dce216dae128a32);
+        
+    
+            var icon_625afc7c813e7c6a8753a9fada527d22 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ee3c22766d20325ecf96b1466fee6323.setIcon(icon_625afc7c813e7c6a8753a9fada527d22);
+        
+    
+        var popup_7fe179a86a10aff001492b091caeb0ba = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c8d4b7109f0df2fbb3966c4b1b1ee9de = $(`<div id="html_c8d4b7109f0df2fbb3966c4b1b1ee9de" style="width: 100.0%; height: 100.0%;">Coron (Busuanga) (22–24 Oct)</div>`)[0];
+            popup_7fe179a86a10aff001492b091caeb0ba.setContent(html_c8d4b7109f0df2fbb3966c4b1b1ee9de);
+        
+
+        marker_ee3c22766d20325ecf96b1466fee6323.bindPopup(popup_7fe179a86a10aff001492b091caeb0ba)
+        ;
+
+        
+    
+    
+            marker_ee3c22766d20325ecf96b1466fee6323.bindTooltip(
+                `<div>
+                     Coron (Busuanga)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2a8b066ea1ce0d58ea7f6a0ceb9e1275 = L.marker(
+                [11.2029, 119.4142],
+                {}
+            ).addTo(map_a09107194c3dea899dce216dae128a32);
+        
+    
+            var icon_84ee6d2e3337e491faf4039b4861354d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2a8b066ea1ce0d58ea7f6a0ceb9e1275.setIcon(icon_84ee6d2e3337e491faf4039b4861354d);
+        
+    
+        var popup_a32d97547d6629711a0e2123f684fbc9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bb3660462b2617d461fcae65c1a3f397 = $(`<div id="html_bb3660462b2617d461fcae65c1a3f397" style="width: 100.0%; height: 100.0%;">El Nido (24–28 Oct)</div>`)[0];
+            popup_a32d97547d6629711a0e2123f684fbc9.setContent(html_bb3660462b2617d461fcae65c1a3f397);
+        
+
+        marker_2a8b066ea1ce0d58ea7f6a0ceb9e1275.bindPopup(popup_a32d97547d6629711a0e2123f684fbc9)
+        ;
+
+        
+    
+    
+            marker_2a8b066ea1ce0d58ea7f6a0ceb9e1275.bindTooltip(
+                `<div>
+                     El Nido
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2f6c81610cdfdd94d646307a19ac6434 = L.marker(
+                [9.5206, 123.4291],
+                {}
+            ).addTo(map_a09107194c3dea899dce216dae128a32);
+        
+    
+            var icon_aa75913a76b34931536349c68e5ab68e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2f6c81610cdfdd94d646307a19ac6434.setIcon(icon_aa75913a76b34931536349c68e5ab68e);
+        
+    
+        var popup_af92eeff1f6905208e2d0b77a46761ed = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9dab812c2ad640675c4f01b2e13a4924 = $(`<div id="html_9dab812c2ad640675c4f01b2e13a4924" style="width: 100.0%; height: 100.0%;">Oslob (29 Oct)</div>`)[0];
+            popup_af92eeff1f6905208e2d0b77a46761ed.setContent(html_9dab812c2ad640675c4f01b2e13a4924);
+        
+
+        marker_2f6c81610cdfdd94d646307a19ac6434.bindPopup(popup_af92eeff1f6905208e2d0b77a46761ed)
+        ;
+
+        
+    
+    
+            marker_2f6c81610cdfdd94d646307a19ac6434.bindTooltip(
+                `<div>
+                     Oslob
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_eefc6aa67aa9b2f38f4aa23355235953 = L.marker(
+                [9.943, 123.3956],
+                {}
+            ).addTo(map_a09107194c3dea899dce216dae128a32);
+        
+    
+            var icon_98c5b411b5e5747b18d87cb3dbfcc4c0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_eefc6aa67aa9b2f38f4aa23355235953.setIcon(icon_98c5b411b5e5747b18d87cb3dbfcc4c0);
+        
+    
+        var popup_b23f3512b69928cff337286d9c9b7806 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e84d2bba3a542b3b0e4237b0846ca267 = $(`<div id="html_e84d2bba3a542b3b0e4237b0846ca267" style="width: 100.0%; height: 100.0%;">Moalboal (30 Oct)</div>`)[0];
+            popup_b23f3512b69928cff337286d9c9b7806.setContent(html_e84d2bba3a542b3b0e4237b0846ca267);
+        
+
+        marker_eefc6aa67aa9b2f38f4aa23355235953.bindPopup(popup_b23f3512b69928cff337286d9c9b7806)
+        ;
+
+        
+    
+    
+            marker_eefc6aa67aa9b2f38f4aa23355235953.bindTooltip(
+                `<div>
+                     Moalboal
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0b2bfe99630f98501a179a741921450e = L.marker(
+                [9.6477, 123.8556],
+                {}
+            ).addTo(map_a09107194c3dea899dce216dae128a32);
+        
+    
+            var icon_f728524d590ac40aacc4b99928647fac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0b2bfe99630f98501a179a741921450e.setIcon(icon_f728524d590ac40aacc4b99928647fac);
+        
+    
+        var popup_eec02a31abf6f909d9894b3eebc78073 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_23752507d6425f57ff8da2912da3f85a = $(`<div id="html_23752507d6425f57ff8da2912da3f85a" style="width: 100.0%; height: 100.0%;">Bohol (Tagbilaran) (31 Oct – 1 Nov)</div>`)[0];
+            popup_eec02a31abf6f909d9894b3eebc78073.setContent(html_23752507d6425f57ff8da2912da3f85a);
+        
+
+        marker_0b2bfe99630f98501a179a741921450e.bindPopup(popup_eec02a31abf6f909d9894b3eebc78073)
+        ;
+
+        
+    
+    
+            marker_0b2bfe99630f98501a179a741921450e.bindTooltip(
+                `<div>
+                     Bohol (Tagbilaran)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e55808b3b0e315e9c8c80d6677d7be7c = L.marker(
+                [11.9674, 121.9248],
+                {}
+            ).addTo(map_a09107194c3dea899dce216dae128a32);
+        
+    
+            var icon_405b43ecf89e5e2d9b4fd462a801e363 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e55808b3b0e315e9c8c80d6677d7be7c.setIcon(icon_405b43ecf89e5e2d9b4fd462a801e363);
+        
+    
+        var popup_aad3177f8ed4a252078cec410e272484 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_317742457d3aeda27dc0ecccdec9c0d0 = $(`<div id="html_317742457d3aeda27dc0ecccdec9c0d0" style="width: 100.0%; height: 100.0%;">Boracay (Caticlan) (2–3 Nov)</div>`)[0];
+            popup_aad3177f8ed4a252078cec410e272484.setContent(html_317742457d3aeda27dc0ecccdec9c0d0);
+        
+
+        marker_e55808b3b0e315e9c8c80d6677d7be7c.bindPopup(popup_aad3177f8ed4a252078cec410e272484)
+        ;
+
+        
+    
+    
+            marker_e55808b3b0e315e9c8c80d6677d7be7c.bindTooltip(
+                `<div>
+                     Boracay (Caticlan)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_3356338b074aa619980059248407ff46 = L.polyline(
+                [[14.5995, 120.9842], [12.0526, 119.9206], [11.2029, 119.4142], [9.5206, 123.4291], [9.943, 123.3956], [9.6477, 123.8556], [11.9674, 121.9248]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a09107194c3dea899dce216dae128a32);
+        
+    
+            var tile_layer_bdd35c83c6ffb6636f2d95ffc478fd84 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_6222a19d0d8ecbb633b3385f4d1ab860 = new L.Control.MiniMap(
+                tile_layer_bdd35c83c6ffb6636f2d95ffc478fd84,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": true, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_a09107194c3dea899dce216dae128a32.addControl(mini_map_6222a19d0d8ecbb633b3385f4d1ab860);
+        
+</script>
+</html>
