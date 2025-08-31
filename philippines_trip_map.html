@@ -147,7 +147,7 @@
 
             marker_02837b182e2cf7508725b59ae0fa5415.bindTooltip(
                 `<div>
-                     Manila (Oct 21, Nov 4)
+                     <b>Manila</b> (Oct 21, Nov 03-04)
                  </div>`,
                 {"sticky": true}
             );
@@ -220,7 +220,30 @@
 
             marker_ae1a11a9cac360e5ee6e87caa5fe5423.bindTooltip(
                 `<div>
-                     Cebu (Oct 29 Transit)
+                     <b>Cebu</b> (Oct 30-Nov 01)
+                     <ul>
+                      <li>29 Transit</li>
+                    </ul>
+                 </div>`,
+                {"sticky": true}
+            );
+
+            var marker_240f80363340f827dbd7edd366f2c0d3 = L.marker(
+                [9.943, 123.3956],
+                {}
+            ).addTo(map_fc97b30c84413fe8c695f5635a68af4d);
+
+
+            var icon_aa5b12f1ee005608cd1aabc4f76d930b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "calendar", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_240f80363340f827dbd7edd366f2c0d3.setIcon(icon_aa5b12f1ee005608cd1aabc4f76d930b);
+
+
+            marker_240f80363340f827dbd7edd366f2c0d3.bindTooltip(
+                `<div>
+                     <b>Moalboal</b> (Oct 29 Transit)
+                      <ul><li>Sardine Run</li></ul>
                  </div>`,
                 {"sticky": true}
             );
@@ -245,28 +268,6 @@
                 {"sticky": true}
             );
 
-
-            var marker_240f80363340f827dbd7edd366f2c0d3 = L.marker(
-                [9.943, 123.3956],
-                {}
-            ).addTo(map_fc97b30c84413fe8c695f5635a68af4d);
-
-
-            var icon_aa5b12f1ee005608cd1aabc4f76d930b = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "calendar", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_240f80363340f827dbd7edd366f2c0d3.setIcon(icon_aa5b12f1ee005608cd1aabc4f76d930b);
-
-
-            marker_240f80363340f827dbd7edd366f2c0d3.bindTooltip(
-                `<div>
-                     <b>Moalboal</b> (Oct 30–31)
-                      <ul><li>Sardine Run</li></ul>
-                 </div>`,
-                {"sticky": true}
-            );
-
-
             var marker_371f1f9723f23971906e01d8f714667c = L.marker(
                 [9.6477, 123.8556],
                 {}
@@ -281,7 +282,7 @@
 
             marker_371f1f9723f23971906e01d8f714667c.bindTooltip(
                 `<div>
-                     <b>Bohol</b> (Oct 31 – Nov 1)
+                     <b>Bohol</b> (Oct 31)
                      <ul>
                       <li>Tarsier Sanctuary</li>
                       <li>Chocolate hills</li>
@@ -304,7 +305,7 @@
 
             marker_3a163ad8c4ed7511f48bccf3660ca3a1.bindTooltip(
                 `<div>
-                     <b>Boracay</b> (Nov 2–3)
+                     <b>Boracay</b> (Nov 01–03)
                      <ul><li>White Beach</li></ul>
                  </div>`,
                 {"sticky": true}
